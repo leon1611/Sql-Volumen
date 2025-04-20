@@ -2,7 +2,7 @@
 
 ## 1. Titulo
 
-**Practica No 3*: Gestión de bases de datos mediante Docker y TablePlus
+*Practica No 3*: Gestión de bases de datos mediante Docker y TablePlus
 
 ## 2. Tiempo de duración
 
@@ -56,7 +56,7 @@ Además, es necesario comprender el uso de volúmenes en Docker, que permiten al
 - **Procesador:** 2,3 GHz Intel Core i5
 
 - **Memoria:** 8 GB
--
+
 - Table-Plus
 
 - Teminal de MAC
@@ -80,111 +80,87 @@ Además, es necesario comprender el uso de volúmenes en Docker, que permiten al
 
 **Paso 1:** Crear un contenedor PostgreSQL con el nombre server_db .
 
-  
-
 Figura 1. Comando **"docker run --name server_db -e POSTGRES_PASSWORD=1611 -p 5434:5432 postgres"**.
 
   
+![alt text](images/1.png)
 
-
-
-  
-  
 
 **Paso 2:** Conectar a un administrador de base de datos (como TablePlus) al contenedor server_db.
-
-  
 
 Figura 2. **"Configuración de Conexión en TablePlus"**.
 
   
+![alt text](images/1-.png)
 
-
-
-  
-  
 
 **Paso 3:** - Crear una base de datos llamada test:
-
-  
 
 Figura 3. Comando SQL **"CREATE DATABASE test ; "**.
 
   
+![alt text](images/2.png)
 
 
-
-  
-
-**Paso 4:** En la base de datos test, crear una tabla llamada customer con los campos: id, fullname y status
-
-  
+**Paso 4:** En la base de datos test, crear una tabla llamada customer con los campos: id, fullname y status.
 
 Figura 4. Comando SQL  **"CREATE TABLE"**..
 
   
-  
+  ![alt text](images/3.png)
+
 
 **Paso 5:** - Insertar un registro en la tabla customer.
-
-  
 
 Figura 5. Comando SQL **"INSERT INTO"**.
 
   
+![alt text](images/4.png)
 
-
+![alt text](images/5.png)
   
-
 **Paso 6:** Detener y eliminar el contenedor server_db.
-
-  
 
 Figura 6. Comando **"Docker stop y Docker rm"**.
 
   
-
+![alt text](images/6.png)
 
   
 
 **Paso 7:** Volver a crear el contenedor PostgreSQL con el mismo nombre server_db.
 
-  
-
 Figura 7. Comando **"docker run "**.
 
   
-
+![alt text](images/1.png)
   
 
 **Paso 8:** Conectarse nuevamente desde el administrador de base de datos.
 
-  
-
 Figura 8. Ventana **"TablePlus "**.
 
   
-  
+  ![alt text](images/1-.png)
+
 
 **Paso 9:** Verificar que la base de datos test ya no existe, demostrando que los datos no se han conservado.
-
-  
 
 Figura 9. Ventana TablePlus **"database"**.
 
   
+![alt text](images/7.png)
+
 
 ### **Parte 2: Base de datos con volumen**
   
 
 **Paso 1:** Crear un volumen en Docker con el comando:
 
-  
-
 Figura 1. Comando **"docker volume create pg_data"**.
 
   
-
+![alt text](images/1.1.png)
   
 
 **Paso 2:** Crear un contenedor PostgreSQL con el nombre server_db2, asociando el volumen creado
@@ -193,7 +169,7 @@ Figura 1. Comando **"docker volume create pg_data"**.
 
 Figura 2. Comando **"docker run ...pg data:/var/lib/postgresql/data"**.
 
-  
+  ![alt text](images/1.2.png)
 
 **Paso 3:** Conectar a un administrador de base de datos (como TablePlus) al contenedor server_db2
 
@@ -202,7 +178,7 @@ Figura 2. Comando **"docker run ...pg data:/var/lib/postgresql/data"**.
 Figura 3. **"Configuración de Conexión en TablePlus"**.
 
   
-
+![alt text](images/1.3.png)
   
 
 **Paso 4:** - Crear una base de datos llamada test:
@@ -212,49 +188,40 @@ Figura 3. **"Configuración de Conexión en TablePlus"**.
 Figura 4. Comando SQL **"CREATE DATABASE test ; "**.
 
   
+![alt text](images/1.4.png)
 
-
-
-  
 
 **Paso 5:** En la base de datos test, crear una tabla llamada customer con los campos: id, fullname y status
 
-  
 
 Figura 5. Comando SQL  **"CREATE TABLE"**..
 
-  
+ ![alt text](images/1.5.png) 
   
 
 **Paso 6:** - Insertar un registro en la tabla customer.
 
-  
-
 Figura 6. Comando SQL **"INSERT INTO"**.
 
   
+![alt text](images/1.6.png)
 
-
-  
+ ![alt text](images/1.7.png) 
 
 **Paso 7:** Detener y eliminar el contenedor server_db2.
 
-  
-
 Figura 7. Comando **"Docker stop y Docker rm"**.
 
-  
+![alt text](images/1.8.png)
 
-
-  
+![alt text](images/1.9.png)
 
 **Paso 8:** Volver a crear el contenedor PostgreSQL con el mismo nombre server_db2 y usando el volumen pgdata nuevamente.
 
-  
 
 Figura 8. Comando **"docker run "**.
 
-  
+ ![alt text](images/1.10.png) 
 
   
 
@@ -264,7 +231,7 @@ Figura 8. Comando **"docker run "**.
 
 Figura 9. Ventana **"TablePlus "**.
 
-  
+  ![alt text](images/1.3.png)
   
 
 **Paso 10:** Verificar que la base de datos test y los registros han persistido
@@ -274,7 +241,7 @@ Figura 9. Ventana **"TablePlus "**.
 Figura 10. Ventana TablePlus **"Test"**.
 
 
-
+![alt text](images/1.11.png)
 
 ## 9. Resultados esperados:
 
